@@ -13,11 +13,11 @@ export default function App() {
     <View style={styles.container}>
       <img style={styles.bike} src={require('./assets/bike.png')} />
 
-        <View>
-          <img src={require('./assets/avatar.png')} />
-          </View>
+      <View style={styles.userInfo}>
+      <img style={styles.avatar} src={require('./assets/avatar.png')} />  
+      <Text style={{marginLeft: 10}}>Makenna Beptista</Text>
+      </View>
 
-      <Text>Makenna Beptista</Text>
       <Text style={{fontWeight: 'bold', backgroundColor: '#d9d8da', borderRadius: 5}}>Novo</Text>
       <Text style={{fontWeight: 'bold'}}>Bicicleta</Text>
       <Text>R$ 120,00</Text>
@@ -52,4 +52,14 @@ const styles = StyleSheet.create({
   bike: {
     height: 250,
   },
+  userInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 25,
+  }
 });

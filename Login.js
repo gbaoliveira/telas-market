@@ -2,8 +2,6 @@ import * as React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 import { SafeAreaView } from 'react-native-web';
 
-
-
 export default function App() {
 
   const [email, onChangeEmail] = React.useState('');
@@ -11,30 +9,34 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-       <img src={require('./assets/logo.png')} />
-      <Text style={styles.fonte}>marketspace</Text>
-      <Text style={styles.fonte2}>Seu espaço de compra e venda</Text>
+      <View style={styles.upperContainer}>
+        <img src={require('./assets/logo.png')} />
+        <Text style={styles.fonte}>marketspace</Text>
+        <Text style={styles.fonte2}>Seu espaço de compra e venda</Text>
 
-      <Text style={styles.acesso}>Acesse sua conta</Text>
+        <Text style={styles.acesso}>Acesse sua conta</Text>
 
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeEmail}
-        value={email}
-        placeholder="E-mail"
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangePassword}
-        value={password}
-        placeholder="Senha"
-      />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeEmail}
+          value={email}
+          placeholder="E-mail"
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangePassword}
+          value={password}
+          placeholder="Senha"
+        />
 
-      <TouchableOpacity style={styles.login}>Entrar</TouchableOpacity>
-      <SafeAreaView style={styles.container2}>
-        <Text style={styles.acess}>Ainda não tem acesso?</Text>
-        <TouchableOpacity style={styles.signin}>Criar uma conta</TouchableOpacity>
-      </SafeAreaView>
+        <TouchableOpacity style={styles.login}>Entrar</TouchableOpacity>
+      </View>
+      <View style={styles.lowerContainer}>
+        <SafeAreaView style={styles.container2}>
+          <Text style={styles.acess}>Ainda não tem acesso?</Text>
+          <TouchableOpacity style={styles.signin}>Criar uma conta</TouchableOpacity>
+        </SafeAreaView>
+      </View>
     </View>
   );
   
@@ -46,6 +48,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#edecee',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  upperContainer: {
+    flex: 1,
+    width: '100%',
+    backgroundColor: '#edecee',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  lowerContainer: {
+    flex: 1,
+    width: '100%',
+    backgroundColor: '#fff',
+    alignItems: 'center',
   },
   logo: {
     height: 120

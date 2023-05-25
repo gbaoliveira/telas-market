@@ -1,52 +1,41 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import MaterialC from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 
 export default function App() {
 
-  const [email, onChangeEmail] = React.useState('');
-  const [password, onChangePassword] = React.useState('');
-
   return (
     <View style={styles.container}>
-      <img src={require('./assets/logo.png')} />
-      <Text style={{ marginTop: 10, fontWeight: 'bold', fontSize: 25,}}>Boas vindas!</Text>
-      <Text style={styles.texto}>Crie sua conta e use o espaço para comprar {"\n"}     itens variados e vender seus produtos</Text>
-      <img style={{marginBottom: 20}} src={require('./assets/cadastro.png')} />
+      <img style={styles.bike} src={require('./assets/bike.png')} />
 
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeEmail}
-        value={email}
-        placeholder="Nome"
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangePassword}
-        value={password}
-        placeholder="E-mail"
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeEmail}
-        value={email}
-        placeholder="Telefone"
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangePassword}
-        value={password}
-        placeholder="Senha"
-      />
-            <TextInput
-        style={styles.input}
-        onChangeText={onChangePassword}
-        value={password}
-        placeholder="Confirmar Senha"
-      />
+        <View>
+          <img src={require('./assets/avatar.png')} />
+          </View>
 
-<TouchableOpacity style={styles.login}>Criar</TouchableOpacity>
+      <Text>Makenna Beptista</Text>
+      <Text style={{fontWeight: 'bold', backgroundColor: '#d9d8da', borderRadius: 5}}>Novo</Text>
+      <Text style={{fontWeight: 'bold'}}>Bicicleta</Text>
+      <Text>R$ 120,00</Text>
+      <Text>Cras congue cursus in tortor sagittis placerat nunc, tellus arcu. Vitae ante leo eget maecenas urna mattis cursus. Mauris metus amet nibh
+            mauris mauris accumsan, euismod. Aenean leo
+            nunc, purus iaculis in aliquam.</Text>
+
+      <Text style={{fontWeight: 'bold'}}>Aceita troca?</Text>
+      <Text>Sim</Text>
+      <Text style={{fontWeight: 'bold'}}>Meios de pagamento: </Text>
+      <MaterialIcon name="qr-code-scanner" size={30} color="#000" />
+      <MaterialIcon name="qr-code" size={30} color="#000" />
+      <FontAwesome name="money" size={30} color="#000" />
+      <Icon name="creditcard" size={30} color="#000" />
+      <MaterialC name="bank-outline" size={30} color="#000" />
+
+      <Text>R$ 120,00</Text>
+      <TouchableOpacity>Entrar em contato</TouchableOpacity>
 
     </View>
   );
@@ -60,25 +49,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  texto:{
-    marginBottom: 15,
-    marginTop: 5,
-  },
-  input: {
-    padding: 10,
-    marginBottom: 10,
-    backgroundColor: '#fff',
-    color: '#9b999f',
-    borderRadius: 7,
-    width: 250,
-  },
-  login: {
-    backgroundColor: '#000',
-    color: '#fff',
-    width: 250,
-    height: 40,
-    padding: 10,
-    borderRadius: 7,
-    alignItems: 'center',
+  bike: {
+    height: 250,
   },
 });

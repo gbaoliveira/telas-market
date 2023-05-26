@@ -1,42 +1,43 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import MaterialC from 'react-native-vector-icons/MaterialCommunityIcons';
-
-
+import { SafeAreaView } from 'react-native-web';
 
 export default function App() {
 
+  const [email, onChangeEmail] = React.useState('');
+  const [password, onChangePassword] = React.useState('');
+
   return (
     <View style={styles.container}>
-      <img style={styles.bike} src={require('./assets/bike.png')} />
+      <View style={styles.upperContainer}>
+        <img src={require('./assets/logo.png')} />
+        <Text style={styles.fonte}>marketspace</Text>
+        <Text style={styles.fonte2}>Seu espaço de compra e venda</Text>
 
-      <View style={styles.userInfo}>
-      <img style={styles.avatar} src={require('./assets/avatar.png')} />  
-      <Text style={{marginLeft: 10}}>Makenna Beptista</Text>
+        <Text style={styles.acesso}>Acesse sua conta</Text>
+
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeEmail}
+          value={email}
+          placeholder="E-mail"
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangePassword}
+          value={password}
+          placeholder="Senha"
+        />
+
+        <TouchableOpacity style={styles.login}>Entrar</TouchableOpacity>
+
       </View>
-
-      <Text style={{fontWeight: 'bold', backgroundColor: '#d9d8da', borderRadius: 5}}>Novo</Text>
-      <Text style={{fontWeight: 'bold'}}>Bicicleta</Text>
-      <Text>R$ 120,00</Text>
-      <Text>Cras congue cursus in tortor sagittis placerat nunc, tellus arcu. Vitae ante leo eget maecenas urna mattis cursus. Mauris metus amet nibh
-            mauris mauris accumsan, euismod. Aenean leo
-            nunc, purus iaculis in aliquam.</Text>
-
-      <Text style={{fontWeight: 'bold'}}>Aceita troca?</Text>
-      <Text>Sim</Text>
-      <Text style={{fontWeight: 'bold'}}>Meios de pagamento: </Text>
-      <MaterialIcon name="qr-code-scanner" size={30} color="#000" />
-      <MaterialIcon name="qr-code" size={30} color="#000" />
-      <FontAwesome name="money" size={30} color="#000" />
-      <Icon name="creditcard" size={30} color="#000" />
-      <MaterialC name="bank-outline" size={30} color="#000" />
-
-      <Text>R$ 120,00</Text>
-      <TouchableOpacity>Entrar em contato</TouchableOpacity>
-
+      <View style={styles.lowerContainer}>
+        <SafeAreaView style={styles.container2}>
+          <Text style={styles.acess}>Ainda não tem acesso?</Text>
+          <TouchableOpacity style={styles.signin}>Criar uma conta</TouchableOpacity>
+        </SafeAreaView>
+      </View>
     </View>
   );
   
@@ -49,17 +50,68 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  bike: {
-    height: 250,
-  },
-  userInfo: {
-    flexDirection: 'row',
+  upperContainer: {
+    flex: 1,
+    marginTop: 250,
+    marginBottom: 150,
+    width: '100%',
+    backgroundColor: '#edecee',
     alignItems: 'center',
-    marginTop: 20,
+    justifyContent: 'center',
   },
-  avatar: {
-    width: 40,
+  lowerContainer: {
+    flex: 1,
+    width: '100%',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+  },
+  logo: {
+    height: 120
+  },
+  fonte: {
+    fontSize: 40,
+    fontWeight: 'bold',
+  },
+  fonte2: {
+    fontSize: 16,
+    color: '#9b999f',
+    marginBottom: 70,
+  },
+  acesso: {
+    fontSize: 15,
+    marginBottom: 15,
+  },
+  input: {
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: '#fff',
+    color: '#9b999f',
+    borderRadius: 7,
+    width: 250,
+  },
+  login: {
+    backgroundColor: '#6879c1',
+    color: '#fff',
+    width: 250,
     height: 40,
-    borderRadius: 25,
+    padding: 10,
+    borderRadius: 7,
+    alignItems: 'center',
+  },
+  signin: {
+    backgroundColor: '#d9d8da',
+    color: '#000',
+    width: 250,
+    height: 40,
+    borderRadius: 7,
+    alignItems: 'center',
+    padding: 10,
+  },
+  container2: {
+    marginTop: 40,
+  },
+  acess: {
+    marginBottom: 15,
+    marginLeft: 50,
   }
 });
